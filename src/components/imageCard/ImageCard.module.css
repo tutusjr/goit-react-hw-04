@@ -1,0 +1,9 @@
+.photoContainer{
+    height: 400px;
+    width: 400px;
+}
+.photoImg{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
