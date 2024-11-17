@@ -18,7 +18,7 @@ export default function SearchBar({onSearch}) {
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="search">ARA</label>
-        <input onChange={handleChange} value={query} type="text" name="search" placeholder="Search..." />
+        <input onChange={handleChange} autoomplete="off" autoFocus value={query} type="text" name="search" placeholder="Search..." />
         <button type="submit">Ara</button>
       </form>
     </>
