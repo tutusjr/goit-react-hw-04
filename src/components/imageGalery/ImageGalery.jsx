@@ -1,37 +1,38 @@
+import { useEffect, useState } from "react";
+import ImageCard from "../imageCard/ImageCard";
+import styles from "./ImageGalery.module.css";
+import useFetch from "../../hooks/useFetch";
 
-import axios from "axios"
-import { useEffect,useState } from "react"
-import ImageCard from "../imageCard/ImageCard"
-import styles from './ImageGalery.module.css'
-export default function ImageGalery({query}) {
+export default function ImageGalery({ query }) {
+  const [photos, setPhotos] = useState([]);
+  
+  // URL'yi sadece query varsa oluşturuyoruz
+  const url = query
+    ? `https://api.unsplash.com/search/photos?query=${query}&client_id=q4VPMl7FQiWWi_voXqSaSIJTduC2o69tSSMEUWBHShc`
+    : null;
 
-  const [photos, setPhotos] = useState([])
+  const { data, loading, error } = useFetch(url);
 
-
-  console.log(query)
-
-    const getPhotos = () => {
-        axios.get(`https://api.unsplash.com/search/photos?query=${query}&client_id=q4VPMl7FQiWWi_voXqSaSIJTduC2o69tSSMEUWBHShc`)
-        .then(res =>setPhotos(res.data.results))
-        .catch(err => console.log(err))
+  useEffect(() => {
+    if (data && data.results) {
+      setPhotos(data.results); // Sadece yeni veri geldiğinde güncellenir
     }
+  }, [data]);
 
-    useEffect(() => {
-       if(query !== ''){
-        getPhotos()
-       }
-    },[query])
+  if (!query) {
+    return <div>Please enter a search term</div>;
+  }
 
-
-    console.log(photos)
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
 
   return (
     <div className={styles.photosContainer}>
-      {
-        photos.length > 0 ? (photos.map((photo => 
-          <ImageCard photo={photo} key={photo.id}/>
-        ))) : (<div>burasi bos</div>)
-      }
+      {photos.length > 0 ? (
+        photos.map((photo) => <ImageCard photo={photo} key={photo.id} />)
+      ) : (
+        <div>No photos found</div>
+      )}
     </div>
-  )
+  );
 }
