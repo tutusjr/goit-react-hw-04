@@ -1,0 +1,15 @@
+.modalContainer{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #333;
+}
+
+.modal{
+    height: 300px;
+    width: 300px;
+    background: #000;
+    position: absolute;
+}

@@ -1,14 +1,15 @@
 import styles from './ImageCard.module.css'
-export default function ImageCard({photo,isOpenModal , setIsOpenModal}) {
+export default function ImageCard({photo, setIsOpenModal , setPhotoLarge}) {
+
+  const handleClickImage = () => {
+    setIsOpenModal(true)
+    setPhotoLarge(photo.urls.regular)
+  }
 
   
-
-  const handleModal = () => {
-
-  }
   return (
     <div className={styles.photoContainer}>
-        <img onClick={() => setIsOpenModal(true)} className={styles.photoImg} src={photo.urls.small} alt="" />
+        <img onClick={handleClickImage} className={styles.photoImg} src={photo.urls.small} alt="" />
     </div>
   )
 }
