@@ -9,7 +9,7 @@ const ImageGalery = ({ photos, term, setIsOpenModal, setPhotoLarge }) => {
 
   return (
     <div className={styles.photosContainer}>
-      {photos.length > 0 ? (
+      {photos.length > 0 && (
         photos.map((photo) => (
           <ImageCard
             setPhotoLarge={setPhotoLarge}
@@ -18,8 +18,6 @@ const ImageGalery = ({ photos, term, setIsOpenModal, setPhotoLarge }) => {
             key={photo.id}
           />
         ))
-      ) : (
-        <div>No photos found</div>
       )}
     </div>
   );

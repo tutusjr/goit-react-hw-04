@@ -33,16 +33,18 @@ function App() {
     <>
       <SearchBar onSearch={handleSearch} />
       {loading && (
-        <ThreeDots
-          visible={true}
-          height="80"
-          width="80"
-          color="purple"
-          radius="9"
-          ariaLabel="three-dots-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-        />
+        <div className="dots">
+          <ThreeDots
+            visible={true}
+            height="80"
+            width="80"
+            color="purple"
+            radius="9"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+          />
+        </div>
       )}
       {error && <div>Error: {error.message}</div>}
       <MemoImageGalery
@@ -57,22 +59,13 @@ function App() {
         photoLarge={photoLarge}
         photos={photos}
       />
-      {data &&
-        data.total_pages > 0 &&
-        (loading ? (
-          <ThreeDots
-            visible={true}
-            height="80"
-            width="80"
-            color="purple"
-            radius="9"
-            ariaLabel="three-dots-loading"
-            wrapperStyle={{}}
-            wrapperClass=""
-          />
-        ) : (
-          <LoadMoreBtn term={term} photos={photos} setPhotos={setPhotos} />
-        ))}
+      {data && data.total_pages > 1 && !loading && (
+        <LoadMoreBtn
+          term={term}
+          photos={photos}
+          setPhotos={setPhotos}
+        />
+      )}
     </>
   );
 }
