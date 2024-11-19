@@ -1,15 +1,17 @@
-.modalContainer{
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #333;
+.modalImage {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
-.modal{
-    height: 300px;
-    width: 300px;
-    background: #000;
+.modal {
     position: absolute;
+    overflow: hidden;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    outline: none;
+    max-height: 90vh;
 }

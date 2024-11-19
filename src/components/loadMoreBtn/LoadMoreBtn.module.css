@@ -1,0 +1,15 @@
+.button{
+    align-items: center;
+    outline: none;
+    border: none;
+    background-color: blue;
+    color: white;
+    border-radius: 3px;
+    font-size: 30px;
+    padding: 12px 34px;
+}
+
+.buttonContainer{
+    text-align: center;
+    padding: 20px 0;
+}

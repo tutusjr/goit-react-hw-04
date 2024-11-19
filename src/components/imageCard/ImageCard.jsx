@@ -8,8 +8,8 @@ export default function ImageCard({photo, setIsOpenModal , setPhotoLarge}) {
 
   
   return (
-    <div className={styles.photoContainer}>
-        <img onClick={handleClickImage} className={styles.photoImg} src={photo.urls.small} alt="" />
-    </div>
+    <div onClick={handleClickImage} className={styles.photoContainer}>
+        <img className={styles.photoImg} src={photo.urls.small} alt="" />
+    </div>  
   )
 }

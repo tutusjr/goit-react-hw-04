@@ -1,4 +1,6 @@
 import { useState } from "react";
+import styles from "./SearchBar.module.css"
+import { IoSearch } from "react-icons/io5";
 
 export default function SearchBar({onSearch}) {
 
@@ -16,10 +18,11 @@ export default function SearchBar({onSearch}) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="search">ARA</label>
-        <input onChange={handleChange} autoomplete="off" autoFocus value={query} type="text" name="search" placeholder="Search..." />
-        <button type="submit">Ara</button>
+      <form className={styles.form} onSubmit={handleSubmit}>
+      <div className={styles.inputContainer}>
+        <button className={styles.searchButton}   type="submit"> <IoSearch/> </button>
+        <input className={styles.searchInput}   onChange={handleChange} autoomplete="off"   autoFocus value={query} type="text"   name="search" placeholder="Search..." />
+      </div>
       </form>
     </>
   );
