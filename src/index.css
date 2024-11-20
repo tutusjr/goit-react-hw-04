@@ -3,9 +3,3 @@
     margin: 0;
     box-sizing: border-box;
 }
-
-.dots{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}

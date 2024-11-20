@@ -1,8 +1,8 @@
 import ImageCard from "../imageCard/ImageCard";
-import styles from "./ImageGalery.module.css";
+import styles from "./ImageGallery.module.css";
 import { memo } from "react";
 
-const ImageGalery = ({ photos, term, setIsOpenModal, setPhotoLarge }) => {
+const ImageGallery = ({ photos, term, setIsOpenModal, setPhotoLarge }) => {
   if (!term) {
     return null;
   }
@@ -23,6 +23,6 @@ const ImageGalery = ({ photos, term, setIsOpenModal, setPhotoLarge }) => {
   );
 };
 
-const MemoImageGalery = memo(ImageGalery);
+const MemoImageGallery = memo(ImageGallery);
 
-export default MemoImageGalery;
+export default MemoImageGallery;
