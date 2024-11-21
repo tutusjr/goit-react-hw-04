@@ -47,7 +47,6 @@ function App() {
         isOpenModal={isOpenModal}
         setIsOpenModal={setIsOpenModal}
         photoLarge={photoLarge}
-        photos={photos}
       />
       {data && data.total_pages !== page && <LoadMoreBtn setPage={setPage} />}
     </>
